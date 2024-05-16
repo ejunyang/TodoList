@@ -1,26 +1,24 @@
-import React, { useState } from 'react';
-import './App.css';
-import TodoWorking from './component/TodoWorking'
-import TodoDone from './component/TodoDone'
-import TodoTemplate from './component/TodoTemplate';
-import TodoAdd from './component/TodoAdd';
-import CurrentDate from './component/CurrentDate';
-
+import React, { useState } from "react";
+import "./App.css";
+import TodoWorking from "./component/TodoWorking";
+import TodoDone from "./component/TodoDone";
+import TodoTemplate from "./component/TodoTemplate";
+import TodoAdd from "./component/TodoAdd";
+import CurrentDate from "./component/CurrentDate";
 
 function App() {
   const [todos, setTodo] = useState([
     {
       id: Date.now(),
-      contents: '주 2회 클라이밍 가기',
+      contents: "주 2회 클라이밍 가기",
     },
     {
       id: Date.now() + 1,
-      contents: '식단 관리하기',
+      contents: "식단 관리하기",
     },
   ]);
 
   const [doneTodo, setDoneTodo] = useState([]); //완료 배열 생성
-
 
   // 할 일 추가
   const onInsert = (contents) => {
@@ -34,8 +32,9 @@ function App() {
 
   // 미완료 -> 삭제기능
   const onRemove = (id) => {
+    //내가 선택한 요소를 빼고 나머지를 새배열로 반환
     setTodo(todos.filter((todo) => todo.id !== id));
-  }
+  };
 
   // 완료기능
   const onSuccess = (done) => {
@@ -46,7 +45,6 @@ function App() {
     setDoneTodo([...doneTodo, newDoneTodo]);
     setTodo(todos.filter((todo) => todo.id !== done.id));
   };
-
 
   // 완료 -> 삭제기능
   const onDoneRemove = (id) => {
@@ -62,11 +60,6 @@ function App() {
     setTodo([...todos, newTodo]);
     setDoneTodo(doneTodo.filter((done) => todo.id !== done.id));
   };
-
-
-
-
-
 
   return (
     <>
@@ -84,8 +77,6 @@ function App() {
           );
         })}
 
-
-
         {doneTodo.map((doneTodo) => {
           return (
             <TodoDone
@@ -99,7 +90,6 @@ function App() {
 
         <TodoAdd onInsert={onInsert} />
       </TodoTemplate>
-
     </>
   );
 }
