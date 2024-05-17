@@ -1,12 +1,12 @@
 import React from "react";
-import TodoWorking from "./TodoWorking";
+import TodoItem from "./TodoItem";
 
 const TodoList = ({ todos, onRemove, onToggle }) => {
   return (
     <div>
       {todos.map((todo) => {
         return (
-          <TodoWorking
+          <TodoItem
             todo={todo}
             key={todo.id}
             onRemove={onRemove}

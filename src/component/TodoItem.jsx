@@ -3,7 +3,7 @@ import deleteIcon from "../assets/delete.png";
 import { IoCheckmark } from "react-icons/io5";
 import { PiCircleLight } from "react-icons/pi";
 
-const TodoWorking = ({ todo, onRemove, onToggle }) => {
+const TodoItem = ({ todo, onRemove, onToggle }) => {
   const { id, contents, isDone } = todo;
   return (
     <>
@@ -19,4 +19,4 @@ const TodoWorking = ({ todo, onRemove, onToggle }) => {
   );
 };
 
-export default TodoWorking;
+export default TodoItem;
