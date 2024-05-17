@@ -8,8 +8,12 @@ const TodoItem = ({ todo, onRemove, onToggle }) => {
   return (
     <>
       <div className="todoItem" style={{ color: isDone ? "#ccc" : "#2e2e2e" }}>
-        {isDone && <IoCheckmark onClick={() => onToggle(id)} />}
-        {!isDone && <PiCircleLight onClick={() => onToggle(id)} />}
+        {isDone && (
+          <IoCheckmark className="check" onClick={() => onToggle(id)} />
+        )}
+        {!isDone && (
+          <PiCircleLight className="check" onClick={() => onToggle(id)} />
+        )}
         <p className="content">{contents}</p>
         <button onClick={() => onRemove(id)}>
           <img src={deleteIcon} />
